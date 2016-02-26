@@ -1,0 +1,11 @@
+--- paiwise ---
+--- a code for computing the pairwise kSZ signal ---
+--- written by Samuel Flender ---
+
+- installing:
+you need to install Healpix, cfitsio, and GSL (gnu science library) and add the corresponding library paths of these to the Makefile.
+then simply type make 
+
+- running:
+./pairwise configfile
+see sample config file for the required input
