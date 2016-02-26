@@ -1,0 +1,69 @@
+;---this config file is for simulations
+
+; number of bootstraps
+N_bootstraps=100
+
+; selection cuts
+zmin=0.0
+zmax=1.0
+massproxy_min=1e14
+massproxy_max=3e14
+
+; how to distribute the separation bins
+sep_min=10
+sep_max=210
+; set this bin_in_redshift=1 if you want to bin in redshift instead of separation
+bin_in_redshift=0
+
+;determine the number of bins (z or d)
+Nbins=10
+
+; cosm. parameters - those are needed for the distance-redshift relation
+; Omega_M is the total matter density Omega_dm + Omega_b
+h=0.71
+Omega_M=0.26
+Omega_k=0.0
+wt=-1.0
+
+; set this to 1 if you have only redshift data in the input and need to translate that into distance
+compute_distance_from_redshift=0
+
+; correcting for z-dependent noise
+correct_z_evolution=0
+sigma_K=0.01
+
+; input catalog of tvals
+input_name = ../cluster_catalog_des/output/Feb25/MiraU_2500sqdeg_M200redlg1e14_zsm1.fits
+filter_keyword=TKSZ
+massproxy_keyword=M200RED
+redshift_keyword=REDSHIFT
+
+; converting the units to mikroK
+convert_units_from_K_to_mikroK=0
+
+; set this to 1 if you wish to apply the spt pointsource and coverage masks
+read_spt_mask=0
+
+; set this to 1 if you want to read SCALEVAL from the fits input
+; and make the more conservative lower massproxy cut in lambda/scaleval
+read_scaleval=0
+
+
+; ---- SYSTEMATIC ERRORS
+; randomizing the redshifts with custom sigma_z
+; if you set redshift_dependend_sigmaz=1, then the actual error will be sigma_z * (1+z)
+randomize_redshifts=0
+sigma_z=0.01
+redshift_dependend_sigmaz=1
+
+; redshift null test
+do_redshift_nulltest=0
+
+; scatter in masscut: no (0), lower(1), or lower+upper(2)
+scatter_in_masscuts=0
+scatter_in_masscuts_sigma=0.4
+
+; output specifications
+write_output=0
+compute_SNR=0
+output_name=output/Feb25/MiraU_2500sqdeg_M2001e14-3e14_z0.8-1.0.dat
